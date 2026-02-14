@@ -75,6 +75,8 @@ public class TableT1Servlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/t1.jsp").forward(request, response);
     }
 
+
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");

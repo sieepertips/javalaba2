@@ -15,13 +15,21 @@
             <% for (String col : (List<String>) request.getAttribute("columnNames")) { %>
                 <th><%= col %></th>
             <% } %>
+            <th></th>
         </tr>
         <% for (Object[] row : (List<Object[]>) request.getAttribute("rows")) { %>
             <tr>
                 <% for (Object cell : row) { %>
                     <td><%= cell != null ? cell : "" %></td>
                 <% } %>
+                <td>
+                    <form method="post" action="${pageContext.request.contextPath}/t2">
+                        <button type="submit" value="<%= row[row.length - 1] %>" name="id">x</button>
+                    </form>
+                </td>
+
             </tr>
+
         <% } %>
     </table>
 
@@ -33,6 +41,10 @@
         <p>Отчетсво: <input type="text" name="pat" required></p>
         <p>Номер группы: <input type="text" name="groop" required></p>
         <input type="submit" value="Добавить">
+    </form>
+    <form method="post" action="${pageContext.request.contextPath}/t2">
+        <p> чето удалить :<input type="text" name="fam" required></p>
+        <input type="submit" value="Удалить">
     </form>
 </body>
 </html>
